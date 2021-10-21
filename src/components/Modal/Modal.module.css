@@ -9,9 +9,24 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 1200;
+  cursor: zoom-out;
 }
 
 .Modal {
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
+}
+
+.Modal img {
+  cursor: default;
+  transition: 0.3s;
+}
+
+.Overlay:hover img {
+  opacity: 0.7;
+  transform: scale(0.9);
+}
+.Modal img:hover {
+  opacity: 1;
+  transform: scale(1);
 }
