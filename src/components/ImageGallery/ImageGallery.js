@@ -1,12 +1,34 @@
 import React from 'react';
-import s from './ImageGallery.module.css';
+import PropTypes from 'prop-types';
 
-const ImageGallery = ({ children, onClick }) => {
+import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
+import i from './ImageGallery.module.css';
+
+function ImageGallery({ images, openModal }) {
   return (
-    <ul className={s.ImageGallery} onClick={onClick}>
-      {children}
+    <ul className={i.ImageGallery}>
+      {images.map(({ webformatURL, id, user, largeImageURL }) => (
+        <ImageGalleryItem
+          key={id}
+          user={user}
+          webformatURL={webformatURL}
+          largeImageURL={largeImageURL}
+          openModal={openModal}
+        />
+      ))}
     </ul>
   );
+}
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      user: PropTypes.string.isRequired,
+      webformatURL: PropTypes.string.isRequired,
+      largeImageURL: PropTypes.string.isRequired,
+    }),
+  ),
+  openModal: PropTypes.func.isRequired,
 };
 
 export default ImageGallery;

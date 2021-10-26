@@ -1,22 +1,18 @@
+import React, { Component } from 'react';
 import Loader from 'react-loader-spinner';
-import { Component } from 'react';
-import s from './Loader.module.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
-class LoaderApp extends Component {
+export default class Spiner extends Component {
   render() {
     return (
-      <div className={s.LoaderContainer}>
-        <Loader
-          type="Puff"
-          color="#00BFFF"
-          height={100}
-          width={100}
-          timeout={3000}
-        />
-      </div>
+      <Loader
+        type="Watch"
+        color="#00BFFF"
+        height={200}
+        width={200}
+        timeout={3000}
+      />
     );
   }
 }
-
-export default LoaderApp;
+// export default Loader;
